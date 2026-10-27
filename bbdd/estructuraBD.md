@@ -1,0 +1,34 @@
+# BBDD:
+## Tablas:
+- Usuarios:
+	- ID (PF)
+	- Nombre
+	- email (NOT NULL)
+	- contraseña (NOT NULL)
+- Visitantes:
+	- ID (PK)
+	- usuario ID (FK)
+	- Apellidos
+- Empresas:
+	- ID (PK)
+	- usuario ID (FK)
+	- descripcion
+	- telefono (NOT NULL)
+	- logo_dir
+	- video_dir
+	- enlace_meet
+- Eventos:
+	- ID (PK)
+	- Nombre
+	- descripcion
+	- enlace_meet?
+	- datetime
+- Stands:
+	- ID (PK)
+	- empresa_ID (FK)
+	- ubicacion
+- Candidatos_categoria?
+- Votos_categoria:
+	- ID (PK)
+	- usuario_ID (FK) (UNIQUE)
+	- candidato_ID (FK)

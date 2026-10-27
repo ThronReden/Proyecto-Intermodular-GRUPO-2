@@ -1,0 +1,4 @@
+- ¿Qué debe recoger el catálogo de cada empresa?
+- ¿Cómo funcionan los concursos?
+	- ¿Todas las empresas participan en todos / todas las categorías?
+- 
