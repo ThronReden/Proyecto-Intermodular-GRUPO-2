@@ -1,0 +1,7 @@
+publish/
+├── Proyecto.Api              # el ejecutable (es autocontenida)
+├── Proyecto.Api.dll
+├── *.dll                     # librerías (EF Core, Pomelo, etc.) y runtime de .NET
+├── appsettings.json
+├── appsettings.Production.json   # conexión real a la BD (para el servidor)?
+└── wwwroot/                  # el front: html, css, img, vendor y js ya compilado
