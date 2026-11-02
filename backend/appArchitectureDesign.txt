@@ -1,0 +1,9 @@
+frontend (WEB):
+	front (HTML, CSS),
+	back (JavaScript) -> hace peticiones http a ->
+->
+backend (API REST):
+	front (wpf)?
+	back (C#) -> hace consultas a ->
+->
+BBDD (MySQL)
