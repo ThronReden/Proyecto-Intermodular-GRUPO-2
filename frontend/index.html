@@ -1,28 +1,178 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <title>Feria de empleo</title>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>III Feria Virtual La Salle · Business Match 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/Parte_Visual.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
+</head>
+<body>
 
-    <meta lang="Es"></meta>
-    <meta charset="UTF-8"></meta>
-    <meta name="Keywords" lang="Es" content="Impresoras, comprar, piezas, 3D"></meta>
-    <meta name="Keywords" lang="Ro" content="Imprimanto,sell"></meta>
-    <meta name="viewport" content="width=device-width initial-scale=1.0, shrink-to-fit=no"></meta>
-    
-    <link href="./css/Parte_Visual.css" rel="stylesheet" type ="Text/css">
-    <link href="./lib/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
-    </head>
-    <body>
+<header class="nav">
+  <a class="logo" href="#inicio">La Salle</a>
+  <nav aria-label="Principal">
+    <ul>
+      <li><a class="active" href="#inicio">Inicio</a></li>
+      <li><a href="#acerca">Acerca de</a></li>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#expositores">Expositores</a></li>
+      <li><a href="#conferencias">Conferencias</a></li>
+      <li><a href="#registro">Registro</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
-<html>
-    <head>
-        <meta charset="UTF-8" lang="es">
-    </head>
-    <body>
-        <header>Hola mundo!</header>
-        <section>
-            <p>Esto es un parrafico de ejemplooooooooo</p>
-        </section>
-        <footer>Grupo 2 - Proyecto Intermodular DAM LSSA 2026-2027</footer>
-    </body>
+<main>
+  <!-- PORTADA -->
+  <section class="hero" id="inicio">
+    <div class="hero-text">
+      <h1>III Feria Virtual La Salle<span>Business Match 2027</span></h1>
+      <p class="lema">Conecta | Innova | Crece.</p>
+      <p>El mayor evento empresarial virtual de La Salle.</p>
+
+      <div class="countdown" role="timer" aria-label="Cuenta atrás hasta el 3 de febrero de 2027">
+        <strong>Faltan:</strong>
+        <div class="units">
+          <div><b id="d">00</b><small>Días</small></div>
+          <i>:</i>
+          <div><b id="h">00</b><small>Horas</small></div>
+          <i>:</i>
+          <div><b id="m">00</b><small>Minutos</small></div>
+          <i>:</i>
+          <div><b id="s">00</b><small>Segundos</small></div>
+        </div>
+      </div>
+      <p class="fecha">3 de febrero de 2027</p>
+
+      <div class="acciones">
+        <a class="btn btn-primario" href="#registro">Regístrate ahora</a>
+        <a class="btn btn-secundario" href="#acerca">Ver más detalles</a>
+      </div>
+      <div class="acciones accesos">
+        <a class="btn btn-borde" href="#expositores">Ir a los stands</a>
+        <a class="btn btn-borde" href="#programa">Ver programa de eventos</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="globo"></div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="beneficios" id="acerca">
+    <h2>Beneficios de participar</h2>
+    <div class="tarjetas">
+      <article>
+        <span class="icono">🌐</span>
+        <h3>Networking global</h3>
+        <p>Conecta con empresas, instituciones y profesionales de todo el mundo.</p>
+      </article>
+      <article>
+        <span class="icono">💡</span>
+        <h3>Soluciones innovadoras</h3>
+        <p>Descubre propuestas y soluciones que impulsan a tu organización.</p>
+      </article>
+      <article>
+        <span class="icono">🤝</span>
+        <h3>Oportunidades de negocio</h3>
+        <p>Convierte cada reunión en una oportunidad real de colaboración.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="funciona" id="programa">
+    <h2>Cómo funciona</h2>
+    <p class="sub">Participar es sencillo. Sigue estos tres pasos.</p>
+    <div class="pasos">
+      <article>
+        <div class="ilustra">📝</div>
+        <h3>Registro</h3>
+        <p>Crea tu perfil de empresa o de visitante.</p>
+      </article>
+      <article class="central">
+        <div class="ilustra">🤝</div>
+        <h3>Matchmaking</h3>
+        <p>Te sugerimos los contactos que mejor encajan contigo.</p>
+      </article>
+      <article>
+        <div class="ilustra">💻</div>
+        <h3>Meetings</h3>
+        <p>Reúnete por videollamada con tus contactos.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- EXPOSITORES -->
+  <section class="expositores" id="expositores">
+    <h2>Expositores destacados</h2>
+    <ul class="logos">
+      <li>Empresa 1</li><li>Empresa 2</li><li>Empresa 3</li><li>Empresa 4</li>
+      <li>Empresa 5</li><li>Empresa 6</li><li>Empresa 7</li><li>Empresa 8</li>
+    </ul>
+    <a class="btn btn-primario" href="#expositores">Ver todos</a>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div>
+    <h4>Navegación</h4>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#programa">Programa</a></li>
+      <li><a href="#expositores">Expositores</a></li>
+      <li><a href="#conferencias">Conferencias</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+  <div>
+  <h4>Síguenos</h4>
+  <p class="redes">
+    <a href="https://www.linkedin.com/company/tu-pagina" aria-label="LinkedIn" target="_blank" rel="noopener">
+      <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.instagram.com/tu-cuenta" aria-label="Instagram" target="_blank" rel="noopener">
+      <i class="ti ti-brand-instagram" aria-hidden="true"></i>
+    </a>
+    <a href="https://x.com/tu-cuenta" aria-label="X" target="_blank" rel="noopener">
+      <i class="ti ti-brand-x" aria-hidden="true"></i>
+    </a>
+    <a href="https://www.youtube.com/@tu-canal" aria-label="YouTube" target="_blank" rel="noopener">
+      <i class="ti ti-brand-youtube" aria-hidden="true"></i>
+    </a>
+  </p>
+</div>
+  <form id="registro" onsubmit="return false">
+    <h4>Regístrate</h4>
+    <label>Nombre <input type="text" autocomplete="name"></label>
+    <label>Correo electrónico <input type="email" autocomplete="email"></label>
+    <button class="btn btn-primario" type="submit">Enviar</button>
+  </form>
+  <p class="legal">© 2027 La Salle · Todos los derechos reservados</p>
+</footer>
+
+<script>
+  const objetivo = new Date("2027-02-03T00:00:00+01:00").getTime();
+  const el = id => document.getElementById(id);
+  const dos = n => String(n).padStart(2, "0");
+  function tic() {
+    let t = Math.max(0, objetivo - Date.now());
+    const dias = Math.floor(t / 864e5); t %= 864e5;
+    const hor = Math.floor(t / 36e5);   t %= 36e5;
+    const min = Math.floor(t / 6e4);    t %= 6e4;
+    const seg = Math.floor(t / 1e3);
+    el("d").textContent = String(dias).padStart(2, "0");
+    el("h").textContent = dos(hor);
+    el("m").textContent = dos(min);
+    el("s").textContent = dos(seg);
+  }
+  tic();
+  setInterval(tic, 1000);
+</script>
+</body>
 </html>
