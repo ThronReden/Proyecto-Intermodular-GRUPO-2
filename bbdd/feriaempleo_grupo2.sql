@@ -50,7 +50,7 @@ CREATE TABLE if not exists empresas (
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario)
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
-    CONSTRAINT uq_empresa_usuario UNIQUE (usuario_id),
+    CONSTRAINT uq_empresa_usuario UNIQUE (usuario_id)
 
 );
 
@@ -89,7 +89,7 @@ CREATE TABLE if not exists participaciones (
     FOREIGN KEY (categoria_id)
         REFERENCES categorias(id_categoria)
         ON DELETE CASCADE
-        ON UPDATE CASCADE,
+        ON UPDATE CASCADE
 	
 
 );
@@ -108,7 +108,7 @@ CREATE TABLE if not exists publicaciones (
         ON UPDATE CASCADE,
 
 	    CONSTRAINT uq_participacion_plataforma
-        UNIQUE (participacion_id, plataforma),
+        UNIQUE (participacion_id, plataforma)
 );
 
 CREATE TABLE if not exists evaluaciones (
@@ -141,5 +141,19 @@ CREATE TABLE if not exists evaluaciones (
     CHECK (nota_mensaje BETWEEN 0 AND 10),
     CHECK (nota_creatividad BETWEEN 0 AND 10),
     CHECK (nota_audiovisual BETWEEN 0 AND 10)
+);
+
+create table if not exists prdouctos(
+	id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    empresa_id INT NOT NULL,
+    nombre VARCHAR(50) NOT NULL,
+    caracteristicas VARCHAR(500),
+    precio DECIMAL(4,2) NOT NULL,
+    referencia VARCHAR (50) UNIQUE NOT NULL,
+    FOREIGN KEY (empresa_id)
+		REFERENCES empresas(id_empresa)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+
 );
 
