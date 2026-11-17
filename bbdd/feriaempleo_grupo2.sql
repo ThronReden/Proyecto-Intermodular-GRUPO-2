@@ -15,21 +15,11 @@ create table if not exists usuarios(
 	
 );
 
-CREATE TABLE IF NOT EXISTS centros (
-    id_centro INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL UNIQUE,
-    cuenta_instagram VARCHAR(50),
-    cuenta_tiktok VARCHAR(50)
-);
 
 create table if not exists visitantes(
 	id_visitante INT auto_increment PRIMARY KEY,
     usuario_id INT NOT NULL,
     Apellidos VARCHAR(100) NOT NULL,
-    
-    tipo_visitante ENUM('VISITANTE', 'JURADO')
-        NOT NULL DEFAULT 'VISITANTE',
-        
     
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuario)
     ON DELETE CASCADE
@@ -37,6 +27,15 @@ create table if not exists visitantes(
     CONSTRAINT uq_visitante_usuario UNIQUE (usuario_id)
 );
 
+create table if not exists jurados(
+	id_jurados INT auto_increment PRIMARY KEY,
+    visitante_id INT NOT NULL,
+
+    FOREIGN KEY (visitante_id) REFERENCES visitantes(id_visitante)
+    ON DELETE CASCADE
+	ON UPDATE CASCADE,
+    CONSTRAINT uq_jurado_visitante UNIQUE (visitante_id)
+);
 
 CREATE TABLE if not exists empresas (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
@@ -52,9 +51,7 @@ CREATE TABLE if not exists empresas (
 	ON DELETE CASCADE
 	ON UPDATE CASCADE,
     CONSTRAINT uq_empresa_usuario UNIQUE (usuario_id),
-    CONSTRAINT fk_empresa_centro
-    FOREIGN KEY (centro_id) REFERENCES centros(id_centro)
-    ON UPDATE CASCADE
+
 );
 
 
@@ -79,8 +76,8 @@ CREATE TABLE if not exists participaciones (
     id_participacion INT AUTO_INCREMENT PRIMARY KEY,
     empresa_id INT NOT NULL,
     categoria_id INT NOT NULL,
-     empresa_recomendada_id INT NULL, -- solo para SOCIO
-
+	
+   
     CONSTRAINT uq_empresa_categoria
         UNIQUE (empresa_id, categoria_id),
 
@@ -94,39 +91,30 @@ CREATE TABLE if not exists participaciones (
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 	
-     FOREIGN KEY (empresa_recomendada_id)
-        REFERENCES empresas(id_empresa)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+
 );
+
+
 
 CREATE TABLE if not exists publicaciones (
     id_publicacion INT AUTO_INCREMENT PRIMARY KEY,
-    participacion_id INT NOT NULL,
     plataforma ENUM('INSTAGRAM', 'TIKTOK') NOT NULL,
     url_video VARCHAR(500) NOT NULL,
-    compartidos INT NOT NULL DEFAULT 0,
-	me_gusta INT NOT NULL DEFAULT 0,
-	guardados INT NOT NULL DEFAULT 0,
-    
-
-    FOREIGN KEY (participacion_id)
+	participacion_id INT NOT NULL,
+	
+	FOREIGN KEY (participacion_id)
         REFERENCES participaciones(id_participacion)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
-    CONSTRAINT uq_participacion_plataforma
+	    CONSTRAINT uq_participacion_plataforma
         UNIQUE (participacion_id, plataforma),
-
-    CHECK (compartidos >= 0),
-    CHECK (me_gusta >= 0),
-    CHECK (guardados >= 0)
 );
 
 CREATE TABLE if not exists evaluaciones (
     id_evaluacion INT AUTO_INCREMENT PRIMARY KEY,
     participacion_id INT NOT NULL,
-    visitante_id INT NOT NULL,
+    jurado_id INT NOT NULL,
 
     nota_mensaje DECIMAL(4,2) NOT NULL,
     nota_creatividad DECIMAL(4,2) NOT NULL,
@@ -138,15 +126,15 @@ CREATE TABLE if not exists evaluaciones (
     
 
     CONSTRAINT uq_evaluador_participacion
-        UNIQUE (participacion_id, visitante_id),
+        UNIQUE (participacion_id, jurado_id),
 
     FOREIGN KEY (participacion_id)
         REFERENCES participaciones(id_participacion)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
-    FOREIGN KEY (visitante_id)
-        REFERENCES visitantes(id_visitante)
+    FOREIGN KEY (jurado_id)
+        REFERENCES jurados(id_jurado)
         ON DELETE CASCADE
         ON UPDATE CASCADE,
 
